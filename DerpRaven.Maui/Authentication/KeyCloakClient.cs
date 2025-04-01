@@ -1,4 +1,4 @@
-﻿namespace DerpRaven.Shared.Authentication;
+﻿namespace DerpRaven.Maui.Authentication;
 using Duende.IdentityModel.Client;
 using Duende.IdentityModel.OidcClient;
 
@@ -14,7 +14,7 @@ public class KeycloakClient : IKeycloakClient
     public string? IdentityToken { get; internal set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="OktaClient"/> class.
+    /// Initializes a new instance of the OktaClient class.
     /// </summary>
     /// <param name="configuration">The OktaClient configuration.</param>
     public KeycloakClient(OktaClientConfiguration configuration)

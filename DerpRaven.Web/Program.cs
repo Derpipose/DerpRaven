@@ -1,30 +1,32 @@
-using DerpRaven.Shared.ApiClients;
-using DerpRaven.Shared.Authentication;
+using DerpRaven.Web.ApiClients;
 using DerpRaven.Web;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
+builder.Services.AddLogging();
 
-builder.Services.AddScoped(sp => new HttpClient
+builder.Services.AddOidcAuthentication(options =>
 {
-    BaseAddress = new Uri(builder.Configuration["BaseAddress"] ?? "http://localhost:8080")
+    options.ProviderOptions.MetadataUrl = "https://engineering.snow.edu/auth/realms/SnowCollege/.well-known/openid-configuration";
+    options.ProviderOptions.Authority = "https://engineering.snow.edu/auth/realms/SnowCollege";
+    options.ProviderOptions.ClientId = "DerpRavenBlazorAuth";
+    options.ProviderOptions.ResponseType = "id_token token";
+
+    options.UserOptions.NameClaim = "preferred_username";
+    options.UserOptions.RoleClaim = "roles";
+    options.UserOptions.ScopeClaim = "scope";
 });
-builder.Services.AddScoped<IKeycloakClient, KeycloakClient>(k =>
+
+builder.Services.AddHttpClient("ApiClient", client =>
 {
-    var oktaClientConfiguration = new OktaClientConfiguration()
-    {
-        //Verify by adding .well-known/openid-configuration to the URL
-        Domain = "https://engineering.snow.edu/auth/realms/SnowCollege/",
-        ClientId = "DerpRavenBlazorAuth",
-        RedirectUri = "myapp://callback",
-        Browser = new WebBrowserAuthenticator()
-    };
-    return new KeycloakClient(oktaClientConfiguration);
-});
-builder.Services.AddScoped<IApiService, ApiService>();
+    client.BaseAddress = new Uri(builder.Configuration["BaseAddress"] ?? "http://localhost:8080");
+})
+.ConfigurePrimaryHttpMessageHandler<BaseAddressAuthorizationMessageHandler>();
+
 builder.Services.AddScoped<ICustomRequestClient, CustomRequestClient>();
 builder.Services.AddScoped<IImageClient, ImageClient>();
 

@@ -2,7 +2,7 @@
 using Duende.IdentityModel.OidcClient.Browser;
 using IBrowser = Duende.IdentityModel.OidcClient.Browser.IBrowser;
 using Microsoft.Maui.Authentication;
-namespace DerpRaven.Shared.Authentication;
+namespace DerpRaven.Maui.Authentication;
 
 public class WebBrowserAuthenticator : IBrowser
 {

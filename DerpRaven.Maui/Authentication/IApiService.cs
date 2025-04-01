@@ -1,5 +1,5 @@
 ﻿
-namespace DerpRaven.Shared.Authentication
+namespace DerpRaven.Maui.Authentication
 {
     public interface IApiService
     {

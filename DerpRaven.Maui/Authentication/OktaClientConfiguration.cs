@@ -1,4 +1,4 @@
-﻿namespace DerpRaven.Shared.Authentication;
+﻿namespace DerpRaven.Maui.Authentication;
 using IBrowser = Duende.IdentityModel.OidcClient.Browser.IBrowser;
 
 public class OktaClientConfiguration

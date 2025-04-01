@@ -1,7 +1,7 @@
 ﻿using DerpRaven.Maui.ViewModels;
 using DerpRaven.Maui.Views;
 using Microsoft.Extensions.Logging;
-using DerpRaven.Shared.Authentication;
+using DerpRaven.Maui.Authentication;
 namespace DerpRaven.Maui;
 
 public static class MauiProgram

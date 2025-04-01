@@ -1,5 +1,5 @@
 ﻿namespace DerpRaven.Web.Pages;
-using DerpRaven.Shared.ApiClients;
+using DerpRaven.Web.ApiClients;
 using DerpRaven.Shared.Dtos;
 using Microsoft.AspNetCore.Components.Forms;
 

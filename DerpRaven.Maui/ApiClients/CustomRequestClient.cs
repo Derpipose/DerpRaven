@@ -1,8 +1,8 @@
 ﻿using System.Net.Http.Json;
-using DerpRaven.Shared.Authentication;
+using DerpRaven.Maui.Authentication;
 using DerpRaven.Shared.Dtos;
 
-namespace DerpRaven.Shared.ApiClients;
+namespace DerpRaven.Maui.ApiClients;
 
 
 public class CustomRequestClient(IApiService apiService) : ICustomRequestClient

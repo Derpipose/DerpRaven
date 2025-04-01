@@ -1,7 +1,7 @@
 ﻿using DerpRaven.Shared.Dtos;
 using Microsoft.AspNetCore.Components.Forms;
 
-namespace DerpRaven.Shared.ApiClients
+namespace DerpRaven.Maui.ApiClients
 {
     public interface IImageClient
     {

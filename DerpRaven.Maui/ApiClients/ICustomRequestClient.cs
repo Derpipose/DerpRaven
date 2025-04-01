@@ -1,6 +1,6 @@
 ﻿using DerpRaven.Shared.Dtos;
 
-namespace DerpRaven.Shared.ApiClients
+namespace DerpRaven.Maui.ApiClients
 {
     public interface ICustomRequestClient
     {

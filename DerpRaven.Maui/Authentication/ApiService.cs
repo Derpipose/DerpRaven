@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-namespace DerpRaven.Shared.Authentication;
+namespace DerpRaven.Maui.Authentication;
 
 public class ApiService : IApiService
 {

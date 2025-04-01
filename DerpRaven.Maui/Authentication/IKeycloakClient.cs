@@ -1,6 +1,6 @@
 ﻿using Duende.IdentityModel.OidcClient;
 
-namespace DerpRaven.Shared.Authentication
+namespace DerpRaven.Maui.Authentication
 {
     public interface IKeycloakClient
     {
